@@ -50,7 +50,7 @@ import {
         <DropdownMenu>
           <DropdownMenuTrigger className="w-full">Completed ({completedTodos.length})</DropdownMenuTrigger>
           <DropdownMenuContent 
-            className="w-[var(--radix-dropdown-menu-trigger-width)] bg-white border rounded max-h-96 overflow-y-auto"
+            className="w-[var(--radix-dropdown-menu-trigger-width)] font-serif bg-white border rounded max-h-96 overflow-y-auto"
             align="start"
           >
             {completedTodos.map(todo => (

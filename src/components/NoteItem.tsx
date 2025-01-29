@@ -70,8 +70,8 @@ const NoteItem = () => {
           <div className="w-full justify-center p-1">
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <div className="w-full h-11 flex justify-center">
-                  <Button variant="outline" className="w-full h-11 justify-center">
+                <div className="w-full h-11 flex justify-center ">
+                  <Button variant="outline" className="w-full h-11 justify-center font-bold">
                     {DBforNote.NoteTitle}
                   </Button>
                 </div>
@@ -79,7 +79,7 @@ const NoteItem = () => {
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>
-                    <div className="h-16 w-full text-3xl">
+                    <div className="h-16 w-full text-3xl font-serif font-bold">
                       <input
                         id="NoteTitle"
                         defaultValue={DBforNote.NoteTitle} 

@@ -3,9 +3,9 @@ import NoteItem from "./NoteItem"
 
 const Note = () => {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center">
+    <div className="flex h-full w-full flex-col items-center justify-center font-bold font-serif">
         <h1 className="text-4xl">Note</h1>
-        <div className=" flex justify-center h-[80%] w-2/3 border border-yellow-500 rounded-xl p-3 m-3 bg-yellow-400">
+        <div className="font-serif flex justify-center h-[80%] w-2/3 border-2 border-green-600 rounded-xl p-3 m-3 bg-yellow-300">
         <NoteItem />
         </div>
         <div className="w-2/3 flex justify-center">

@@ -47,7 +47,7 @@ const AddTodo = () => {
             </Button>
           </PopoverTrigger>
           <PopoverContent 
-            className="w-[var(--radix-popover-trigger-width)]" 
+            className="w-[var(--radix-popover-trigger-width)] font-serif" 
             align="start">
             <Input placeholder="Enter Todo" className="w-full m-1 " onChange={(e) => setTodoTitle(e.target.value)}/>
             <Input placeholder="Enter Description" className="w-full m-1" onChange={(e) => setTodoDesc(e.target.value)} />

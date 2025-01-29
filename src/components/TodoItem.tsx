@@ -70,7 +70,7 @@ const [editedDesc, setEditedDesc] = useState("");
 
   if (TodoError && !TodoIsLoading) {
     alert("Error in Fetching Todo Bruhh");
-    return console.error();
+    return null;
   }
 
   if (TodoIsLoading) {
@@ -89,7 +89,7 @@ const [editedDesc, setEditedDesc] = useState("");
                   <div className="grid gap-1.5 leading-none">
                     <label
                       htmlFor={`todo-${DBforTodo.id}`}
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
                     >
                       {DBforTodo.TodoTitle}
                     </label>
@@ -109,7 +109,7 @@ const [editedDesc, setEditedDesc] = useState("");
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>
-                    <div className="h-16 w-full text-3xl">
+                    <div className="h-16 w-full text-3xl font-serif">
                       <input
                         id="TodoTitle"
                         defaultValue={DBforTodo.TodoTitle}
@@ -120,6 +120,7 @@ const [editedDesc, setEditedDesc] = useState("");
                   </AlertDialogTitle>
                   <AlertDialogDescription>
                     <Input
+                    className="font-serif text-slate-800"
                       placeholder="Enter Todo"
                       defaultValue={DBforTodo.TodoDesc}
                       onChange={(e) => setEditedDesc(e.target.value)}

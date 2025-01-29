@@ -60,7 +60,7 @@ const AddNote = () => {
                 <input
                 id="NoteTitle"
                   placeholder="Enter Note Title"
-                  className="font-bold text-black border-none  p-0 m-0 w-full h-full"
+                  className="font-serif font-bold text-black border-none  p-0 m-0 w-full h-full"
                   value={noteTitle}
                   onChange={(e) => setNoteTitle(e.target.value)}
                 />
