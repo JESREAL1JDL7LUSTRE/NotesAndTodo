@@ -4,6 +4,7 @@ export interface UserResponseHttpDataTodo {
     TodoTitle: string;
     TodoDesc: string;
     TodoDone: boolean;
+    TodoDate: Date;
 }
 
 export interface UserResponseHttpDataNote {

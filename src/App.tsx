@@ -1,4 +1,5 @@
 
+
 import WholeScreen from './components/WholeScreen'
 
 
@@ -6,7 +7,7 @@ function App() {
 
 
   return (
-      <WholeScreen />
+      <WholeScreen/>
     
   )
 }

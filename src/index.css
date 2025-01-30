@@ -7,6 +7,15 @@
 @layer base {
   :root {
 
+    /* Hide scrollbar but allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+}
+
     --background: 0 0% 100%;
 
     --foreground: 240 10% 3.9%;

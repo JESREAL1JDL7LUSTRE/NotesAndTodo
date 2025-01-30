@@ -5,8 +5,8 @@ export const FetchDataTodo = async () => {
   return response.data || [];
 }
 
-export const PushTodoData = async (TodoTitle: string, TodoDesc: string, TodoDone: boolean) => {
-  const {error} = await supabase.from("BDforTodo").insert([{ TodoTitle, TodoDesc, TodoDone }]);
+export const PushTodoData = async (TodoTitle: string, TodoDesc: string, TodoDone: boolean, TodoDate: Date) => {
+  const {error} = await supabase.from("BDforTodo").insert([{ TodoTitle, TodoDesc, TodoDone, TodoDate}]);
 
   if (error) {
     throw new Error(error.message)
@@ -39,10 +39,10 @@ export const PushDoneTodoDataRev = async (Id: number) => {
   console.log("update", data, Id)
 };
 
-export const UpdateTodoData = async (Id: number, TodoTitle: string, TodoDesc: string) => {
+export const UpdateTodoData = async (Id: number, TodoTitle: string, TodoDesc: string, TodoDate: Date) => {
   const { data, error } = await supabase
     .from("BDforTodo")
-    .update({ TodoTitle, TodoDesc}) 
+    .update({ TodoTitle, TodoDesc, TodoDate}) 
     .eq("id",Id);    
 
   if (error) {
@@ -58,6 +58,8 @@ export const DelTodoData = async (Id: number) => {
   }
   console.log("delete",data, Id)
 }
+
+
 
 
 export const FetchDataNote = async () => {

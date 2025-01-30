@@ -19,11 +19,13 @@ import { UserResponseHttpDataTodo } from "@/server/DataTypes";
 import Loading from "./ui/Loading";
 import { useQueryClient } from "@tanstack/react-query"
 import { useState } from "react";
+import { DatePickerWithPresets } from "./DatePicker";
 
 const TodoItem = () => {
 
   const [editedTitle, setEditedTitle] = useState("");
 const [editedDesc, setEditedDesc] = useState("");
+const [editedDate, setEditedDate] = useState("");
 
   const {
     data: TodoData,
@@ -57,7 +59,7 @@ const [editedDesc, setEditedDesc] = useState("");
   });
 
   const mutationUpd = useMutation({
-    mutationFn: ({ id, TodoTitle, TodoDesc }: { id: number, TodoTitle: string, TodoDesc: string }) => UpdateTodoData(id, TodoTitle, TodoDesc),
+    mutationFn: ({ id, TodoTitle, TodoDesc, TodoDate }: { id: number, TodoTitle: string, TodoDesc: string, TodoDate: Date}) => UpdateTodoData(id, TodoTitle, TodoDesc, TodoDate),
     onSuccess: () => {
       queryClient.invalidateQueries({queryKey:["TodoItem"]})
     },
@@ -126,6 +128,8 @@ const [editedDesc, setEditedDesc] = useState("");
                       onChange={(e) => setEditedDesc(e.target.value)}
                     />
                   </AlertDialogDescription>
+                  <DatePickerWithPresets defaultValue={DBforTodo.TodoDate ? new Date(DBforTodo.TodoDate) : undefined} 
+  onChange={(dateString) => setEditedDate(dateString)}></DatePickerWithPresets>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogAction className="" onClick={() => mutationDel.mutate(DBforTodo.id)}>
@@ -134,7 +138,8 @@ const [editedDesc, setEditedDesc] = useState("");
                   <AlertDialogCancel>Close</AlertDialogCancel>
                   <AlertDialogAction onClick={() => mutationUpd.mutate({ id: DBforTodo.id, 
                     TodoTitle: editedTitle || DBforTodo.TodoTitle, 
-                    TodoDesc: editedDesc || DBforTodo.TodoDesc })}>Save</AlertDialogAction>
+                    TodoDesc: editedDesc || DBforTodo.TodoDesc,
+                    TodoDate: new Date (editedDate || DBforTodo.TodoDate)})}>Save</AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
